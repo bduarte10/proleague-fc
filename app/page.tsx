@@ -1,4 +1,5 @@
-// app/page.tsx
+export const dynamic = "force-dynamic";
+
 import Image from "next/image";
 import platformIcon from "@/app/icon.png";
 import { prisma } from "@/lib/prisma";
