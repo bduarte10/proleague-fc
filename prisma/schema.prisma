@@ -25,11 +25,11 @@ enum GroupName {
 
 // 3. Tabela de Times
 model Team {
-  id    String    @id @default(uuid())
-  name  String
+  id      String    @id @default(uuid())
+  name    String
   // Optional ISO country code (e.g., "AR", "BR") used to render flags
   isoCode String?
-  group GroupName @default(NONE)
+  group   GroupName @default(NONE)
 
   homeMatches Match[] @relation("HomeTeam")
   awayMatches Match[] @relation("AwayTeam")
