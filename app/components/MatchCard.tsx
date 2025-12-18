@@ -65,20 +65,17 @@ export function MatchCard({ match }: { match: MatchWithTeams }) {
       <form
         action={async (formData) => {
           await updateMatchScore(formData);
+          //criar um timeout para aguardar 1 segundo antes de fechar a edição
+          await new Promise((resolve) => setTimeout(resolve, 1000));
           setIsEditing(false); // Fecha a edição após salvar
         }}
         className="flex flex-col gap-3 w-full"
       >
-        {/* Input Escondido para enviar o ID */}
         <input type="hidden" name="matchId" value={match.id} />
-
-        {/* Linha principal: times e placar alinhados */}
         <div className="grid grid-cols-[minmax(140px,1fr)_auto_minmax(140px,1fr)] items-center gap-3 md:gap-5 w-full justify-items-center">
           <TeamInfo team={match.homeTeam} flagFirst={false} />
-
           <div className="flex items-center justify-center gap-3">
             {isEditing ? (
-              // MODO EDIÇÃO: Inputs
               <>
                 <input
                   name="homeScore"
@@ -95,7 +92,6 @@ export function MatchCard({ match }: { match: MatchWithTeams }) {
                 />
               </>
             ) : (
-              // MODO VISUALIZAÇÃO: Texto
               <div className="flex items-center gap-3 text-xl font-bold text-slate-800">
                 <span
                   className={`w-11 h-11 flex items-center justify-center rounded-xl ${
@@ -123,7 +119,6 @@ export function MatchCard({ match }: { match: MatchWithTeams }) {
           <TeamInfo team={match.awayTeam} flagFirst={true} />
         </div>
 
-        {/* Botões de ação abaixo, alinhados ao centro */}
         <div className="flex items-center justify-center gap-2">
           {isEditing ? (
             <>
