@@ -8,36 +8,37 @@ async function main() {
 
   console.log("Criando times...");
 
-  // Grupo A
-  const teamA1 = await prisma.team.create({
-    data: { name: "Brasil", group: GroupName.A, isoCode: "BR" },
-  });
-  const teamA2 = await prisma.team.create({
-    data: { name: "Argentina", group: GroupName.A, isoCode: "AR" },
-  });
-  const teamA3 = await prisma.team.create({
-    data: { name: "Uruguai", group: GroupName.A, isoCode: "UY" },
-  });
-  const teamA4 = await prisma.team.create({
-    data: { name: "Chile", group: GroupName.A, isoCode: "CL" },
-  });
+  // Grupo A (Grupo 1)
+  const groupA = await Promise.all([
+    prisma.team.create({
+      data: { name: "Espanha", group: GroupName.A, isoCode: "ES" },
+    }),
+    prisma.team.create({
+      data: { name: "Noruega", group: GroupName.A, isoCode: "NO" },
+    }),
+    prisma.team.create({
+      data: { name: "Argentina", group: GroupName.A, isoCode: "AR" },
+    }),
+    prisma.team.create({
+      data: { name: "Alemanha", group: GroupName.A, isoCode: "DE" },
+    }),
+  ]);
 
-  // Grupo B
-  const teamB1 = await prisma.team.create({
-    data: { name: "França", group: GroupName.B, isoCode: "FR" },
-  });
-  const teamB2 = await prisma.team.create({
-    data: { name: "Alemanha", group: GroupName.B, isoCode: "DE" },
-  });
-  const teamB3 = await prisma.team.create({
-    data: { name: "Itália", group: GroupName.B, isoCode: "IT" },
-  });
-  const teamB4 = await prisma.team.create({
-    data: { name: "Espanha", group: GroupName.B, isoCode: "ES" },
-  });
-
-  const groupA = [teamA1, teamA2, teamA3, teamA4];
-  const groupB = [teamB1, teamB2, teamB3, teamB4];
+  // Grupo B (Grupo 2)
+  const groupB = await Promise.all([
+    prisma.team.create({
+      data: { name: "França", group: GroupName.B, isoCode: "FR" },
+    }),
+    prisma.team.create({
+      data: { name: "Inglaterra", group: GroupName.B, isoCode: "GB" },
+    }),
+    prisma.team.create({
+      data: { name: "Holanda", group: GroupName.B, isoCode: "NL" },
+    }),
+    prisma.team.create({
+      data: { name: "Portugal", group: GroupName.B, isoCode: "PT" },
+    }),
+  ]);
 
   console.log("Gerando partidas da fase de grupos...");
 

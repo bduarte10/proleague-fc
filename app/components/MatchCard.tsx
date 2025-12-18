@@ -84,14 +84,14 @@ export function MatchCard({ match }: { match: MatchWithTeams }) {
                   name="homeScore"
                   type="number"
                   defaultValue={match.homeScore ?? 0}
-                  className="w-12 h-11 text-center border border-slate-200 rounded-lg bg-slate-50 font-semibold text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none [-moz-appearance:textfield]"
+                  className="w-12 h-11 text-center text-slate-800 border border-slate-200 rounded-lg bg-slate-50 font-semibold text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none [-moz-appearance:textfield]"
                 />
                 <span className="text-base font-bold text-slate-500">-</span>
                 <input
                   name="awayScore"
                   type="number"
                   defaultValue={match.awayScore ?? 0}
-                  className="w-12 h-11 text-center border border-slate-200 rounded-lg bg-slate-50 font-semibold text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none [-moz-appearance:textfield]"
+                  className="w-12 h-11 text-center text-slate-800 border border-slate-200 rounded-lg bg-slate-50 font-semibold text-lg focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none [-moz-appearance:textfield]"
                 />
               </>
             ) : (

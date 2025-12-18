@@ -1,6 +1,8 @@
 // app/page.tsx
 import { prisma } from "@/lib/prisma";
 import { MatchCard } from "@/app/components/MatchCard"; // <--- Importamos o componente novo
+import { calculateStandings } from "@/lib/utils";
+import { StandingsTable } from "@/app/components/StandingsTable";
 
 export default async function Home() {
   const matches = await prisma.match.findMany({
@@ -11,6 +13,8 @@ export default async function Home() {
 
   const groupA = matches.filter((m) => m.group === "A");
   const groupB = matches.filter((m) => m.group === "B");
+  const standingsA = calculateStandings(groupA);
+  const standingsB = calculateStandings(groupB);
 
   return (
     <main className="min-h-screen bg-slate-50 pb-20">
@@ -34,6 +38,7 @@ export default async function Home() {
               Grupo A
             </h2>
           </div>
+          <StandingsTable stats={standingsA} />
           <div className="space-y-3">
             {groupA.map((match) => (
               // Agora usamos o componente Client Side
@@ -49,6 +54,7 @@ export default async function Home() {
               Grupo B
             </h2>
           </div>
+          <StandingsTable stats={standingsB} />
           <div className="space-y-3">
             {groupB.map((match) => (
               <MatchCard key={match.id} match={match} />
