@@ -1,4 +1,6 @@
 // app/page.tsx
+import Image from "next/image";
+import platformIcon from "@/app/icon.png";
 import { prisma } from "@/lib/prisma";
 import { MatchCard } from "@/app/components/MatchCard"; // <--- Importamos o componente novo
 import { calculateStandings } from "@/lib/utils";
@@ -21,8 +23,15 @@ export default async function Home() {
       {/* Header com a marca ProLeague FC */}
       <div className="bg-slate-900 text-white py-8 shadow-lg mb-8">
         <div className="max-w-5xl mx-auto px-4 text-center">
-          <h1 className="text-4xl font-black tracking-tighter italic uppercase text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400">
-            ProLeague FC
+          <h1 className="text-4xl font-black tracking-tighter italic uppercase text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-green-400 flex items-center justify-center gap-3">
+            <Image
+              src={platformIcon}
+              alt="ProLeague FC"
+              width={48}
+              height={48}
+              className="h-12 w-12 drop-shadow"
+            />
+            <span>ProLeague FC</span>
           </h1>
           <p className="text-slate-400 text-sm mt-1 tracking-widest">
             OFFICIAL TOURNAMENT
