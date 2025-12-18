@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { Pool } from "pg";
 
-if (!process.env.DATABASE_URL) {
+if (!process.env.POSTGRES_PRISMA_URL) {
   throw new Error("DATABASE_URL is required to initialize PrismaClient.");
 }
 

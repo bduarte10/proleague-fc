@@ -4,7 +4,7 @@ import Image from "next/image";
 import platformIcon from "@/app/icon.png";
 import { prisma } from "@/lib/prisma";
 import { MatchCard } from "@/app/components/MatchCard"; // <--- Importamos o componente novo
-import { calculateStandings } from "@/lib/utils";
+import { calculateStandings } from "@/app/utils";
 import { StandingsTable } from "@/app/components/StandingsTable";
 
 export default async function Home() {

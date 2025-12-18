@@ -1,4 +1,4 @@
-import { TeamStats } from "@/lib/utils";
+import { TeamStats } from "@/app/utils";
 
 export function StandingsTable({ stats }: { stats: TeamStats[] }) {
   return (
