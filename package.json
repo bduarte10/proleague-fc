@@ -12,6 +12,7 @@
     "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
+    "@prisma/client": "^7.2.0",
     "@prisma/adapter-pg": "^7.2.0",
     "dotenv": "^17.2.3",
     "next": "16.0.10",
@@ -20,7 +21,6 @@
     "react-dom": "19.2.1"
   },
   "devDependencies": {
-    "@prisma/client": "^7.2.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20.19.27",
     "@types/pg": "^8.16.0",
